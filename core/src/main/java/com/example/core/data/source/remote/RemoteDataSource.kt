@@ -5,12 +5,14 @@ import com.example.core.BuildConfig
 import com.example.core.R
 import com.example.core.data.source.remote.network.ApiResponse
 import com.example.core.data.source.remote.network.ApiService
+import com.example.core.data.source.remote.response.ListMovieResponse
 import com.example.core.data.source.remote.response.MovieDetailResponse
 import com.example.core.data.source.remote.response.MovieResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import retrofit2.http.Query
 
 class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieNowPlaying(): Flow<ApiResponse<List<MovieResponse>>> {
@@ -108,6 +110,22 @@ class RemoteDataSource(private val apiService: ApiService) {
         return flow {
             try {
                 val response = apiService.getMovieSimilar(id, BuildConfig.apiKey)
+                val dataArray = response.results
+                if (dataArray.isNotEmpty()) {
+                    emit(ApiResponse.Success(dataArray))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e : Exception) {
+                emit(ApiResponse.Error(Resources.getSystem().getString(R.string.remote_error)))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getMovieSearch(query: String): Flow<ApiResponse<List<MovieResponse>>> {
+        return flow {
+            try {
+                val response = apiService.getMovieSearch(BuildConfig.apiKey, query)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))

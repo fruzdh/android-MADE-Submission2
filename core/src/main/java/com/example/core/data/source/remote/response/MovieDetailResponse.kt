@@ -10,7 +10,7 @@ data class MovieDetailResponse(
     val title: String,
 
     @field:SerializedName("tagline")
-    val tagline: String,
+    val tagline: String?,
 
     @field:SerializedName("release_date")
     val release_date: String,
@@ -19,11 +19,11 @@ data class MovieDetailResponse(
     val genres: List<MovieGenreResponse>,
 
     @field:SerializedName("runtime")
-    val runtime: Int,
+    val runtime: Int?,
 
     @field:SerializedName("overview")
-    val overview: String,
+    val overview: String?,
 
     @field:SerializedName("poster_path")
-    val poster_path: String
+    val poster_path: String?
 )
