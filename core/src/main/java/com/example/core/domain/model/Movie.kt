@@ -1,4 +1,8 @@
 package com.example.core.domain.model
 
-class Movie {
-}
+data class Movie(
+    val id: Int,
+    val title: String,
+    val overview: String,
+    val poster_path: String?
+)
