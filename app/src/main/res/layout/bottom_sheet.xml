@@ -35,11 +35,20 @@
             tools:text="@string/tagline"/>
 
         <TextView
-            android:id="@+id/tvGenre"
+            android:id="@+id/tvDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            android:textColor="@color/black60"
+            tools:text="@string/date"/>
+
+        <TextView
+            android:id="@+id/tvGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
             android:textSize="14sp"
             android:textColor="@color/black60"
             tools:text="@string/genre"/>

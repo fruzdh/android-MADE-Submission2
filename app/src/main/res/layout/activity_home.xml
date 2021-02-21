@@ -25,7 +25,6 @@
         app:mbn_shadowColor="@color/white"
         app:mbn_defaultIconColor="@color/black60"
         app:mbn_selectedIconColor="@color/black87"
-        app:mbn_hasAnimation="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

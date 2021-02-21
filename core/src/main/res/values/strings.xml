@@ -3,4 +3,5 @@
     <string name="poster">Poster</string>
     <string name="title">Title</string>
     <string name="overview">Overview</string>
+    <string name="remote_error">Please check your internet connection or try again later</string>
 </resources>
