@@ -28,7 +28,10 @@ class LocalDataSource(private val movieDao: MovieDao) {
 
     suspend fun insertMovieRecommendations(movieRecommendationsEntity: List<MovieRecommendationsEntity>) = movieDao.insertMovieRecommendations(movieRecommendationsEntity)
 
-    fun getMovieSearch(query: String): Flow<List<MovieSearchEntity>> = movieDao.getMovieSearch(query)
+    fun getMovieSearch(query: String): Flow<List<MovieSearchEntity>> {
+        val keyWord = "%$query%"
+        return movieDao.getMovieSearch(keyWord)
+    }
 
     suspend fun insertMovieSearch(movieSearchEntity: List<MovieSearchEntity>) = movieDao.insertMovieSearch(movieSearchEntity)
 

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 class MovieInteractor(private val movieRepository: IMovieRepository) : MovieUseCase {
     override fun getMovieDetail(id: Int): Flow<Resource<MovieDetail>> = movieRepository.getMovieDetail(id)
 
-    override fun getMovieFavorite(): Flow<List<MovieDetail>> = movieRepository.getMovieFavorite()
+    override fun getMovieFavorite(): Flow<List<Movie>> = movieRepository.getMovieFavorite()
 
     override fun updateMovieDetail(movieDetail: MovieDetail, newState: Boolean) = movieRepository.updateMovieDetail(movieDetail, newState)
 
