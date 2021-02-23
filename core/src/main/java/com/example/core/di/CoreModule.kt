@@ -2,6 +2,7 @@ package com.example.core.di
 
 import androidx.room.Room
 import com.example.core.BuildConfig
+import com.example.core.Config
 import com.example.core.data.MovieRepository
 import com.example.core.data.source.local.LocalDataSource
 import com.example.core.data.source.local.room.MovieDatabase
@@ -37,7 +38,7 @@ val networkModule = module {
     }
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.baseUrl)
+            .baseUrl(Config.baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()

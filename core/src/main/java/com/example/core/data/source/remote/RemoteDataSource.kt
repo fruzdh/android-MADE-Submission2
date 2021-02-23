@@ -2,6 +2,7 @@ package com.example.core.data.source.remote
 
 import android.content.res.Resources
 import com.example.core.BuildConfig
+import com.example.core.Config
 import com.example.core.R
 import com.example.core.data.source.remote.network.ApiResponse
 import com.example.core.data.source.remote.network.ApiService
@@ -18,7 +19,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieNowPlaying(): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {
             try {
-                val response = apiService.getMovieNowPlaying(BuildConfig.apiKey)
+                val response = apiService.getMovieNowPlaying(Config.apiKey)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))
@@ -34,7 +35,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMoviePopular(): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {
             try {
-                val response = apiService.getMoviePopular(BuildConfig.apiKey)
+                val response = apiService.getMoviePopular(Config.apiKey)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))
@@ -50,7 +51,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieTopRated(): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {
             try {
-                val response = apiService.getMovieTopRated(BuildConfig.apiKey)
+                val response = apiService.getMovieTopRated(Config.apiKey)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))
@@ -66,7 +67,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieUpcoming(): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {
             try {
-                val response = apiService.getMovieUpcoming(BuildConfig.apiKey)
+                val response = apiService.getMovieUpcoming(Config.apiKey)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))
@@ -82,7 +83,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieDetail(id: Int): Flow<ApiResponse<MovieDetailResponse>> {
         return flow {
             try {
-                val response = apiService.getMovieDetail(id, BuildConfig.apiKey)
+                val response = apiService.getMovieDetail(id, Config.apiKey)
                 emit(ApiResponse.Success(response))
             } catch (e : Exception) {
                 emit(ApiResponse.Error(Resources.getSystem().getString(R.string.remote_error)))
@@ -93,7 +94,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieRecommendations(id: Int): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {
             try {
-                val response = apiService.getMovieRecommendations(id, BuildConfig.apiKey)
+                val response = apiService.getMovieRecommendations(id, Config.apiKey)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))
@@ -109,7 +110,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieSimilar(id: Int): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {
             try {
-                val response = apiService.getMovieSimilar(id, BuildConfig.apiKey)
+                val response = apiService.getMovieSimilar(id, Config.apiKey)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))
@@ -125,7 +126,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieSearch(query: String): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {
             try {
-                val response = apiService.getMovieSearch(BuildConfig.apiKey, query)
+                val response = apiService.getMovieSearch(Config.apiKey, query)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))
