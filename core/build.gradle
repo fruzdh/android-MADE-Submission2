@@ -1,10 +1,9 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-parcelize'
+    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 }
-
 apply from: '../shared_dependencies.gradle'
 
 android {
@@ -25,11 +24,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        buildTypes.each {
-            it.buildConfigField 'String', 'apiKey', apiKey
-            it.buildConfigField 'String', 'baseUrl', baseUrl
-            it.buildConfigField 'String', 'baseUrlImage', baseUrlImage
         }
     }
 
@@ -54,7 +48,4 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
     implementation "androidx.room:room-ktx:$room_version"
     api "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-
-    implementation "net.zetetic:android-database-sqlcipher:$sqlcipher_version"
-    implementation "androidx.sqlite:sqlite-ktx:$sql_version"
 }
