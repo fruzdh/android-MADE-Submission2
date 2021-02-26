@@ -1,120 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="-32dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-    app:behavior_hideable="false">
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="100dp"
+    app:cardCornerRadius="32dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="8dp"
-            android:textSize="18sp"
-            android:textColor="@color/black87"
-            android:textStyle="bold"
-            tools:text="@string/title"/>
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="3dp">
 
-        <TextView
-            android:id="@+id/tvTagline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:textSize="14sp"
-            android:textColor="@color/black87"
-            tools:text="@string/tagline"/>
+            <View
+                android:layout_width="50dp"
+                android:layout_height="5dp"
+                android:background="@color/black60" />
 
-        <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            android:textColor="@color/black60"
-            tools:text="@string/date"/>
+        </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/tvGenre"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:textSize="14sp"
-            android:textColor="@color/black60"
-            tools:text="@string/genre"/>
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/tvRuntime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:textSize="14sp"
-            android:textColor="@color/black60"
-            tools:text="@string/runtime"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvOverview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            android:textColor="@color/black87"
-            tools:text="@string/overview"/>
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/black87"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:text="@string/title"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/recommendations"
-            android:textSize="18sp"
-            android:textColor="@color/black87"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            android:layout_marginHorizontal="8dp" />
+                <TextView
+                    android:id="@+id/tvTagline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black87"
+                    android:visibility="gone"
+                    tools:text="@string/tagline"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRecommendations"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="horizontal"
-            android:layout_marginVertical="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_list_poster"/>
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black60"
+                    android:visibility="gone"
+                    tools:text="@string/date"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/similar"
-            android:textSize="18sp"
-            android:textColor="@color/black87"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            android:layout_marginHorizontal="8dp" />
+                <TextView
+                    android:id="@+id/tvGenre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black60"
+                    android:visibility="gone"
+                    tools:text="@string/genre"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvSimilar"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="horizontal"
-            android:layout_marginVertical="8dp"
-            android:layout_marginBottom="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_list_poster"/>
+                <TextView
+                    android:id="@+id/tvRuntime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black60"
+                    android:visibility="gone"
+                    tools:text="@string/runtime"/>
+
+                <TextView
+                    android:id="@+id/tvOverview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black87"
+                    android:visibility="gone"
+                    tools:text="@string/overview"/>
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/sfl_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:shimmer_auto_start="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginTop="8dp"
+                            android:textSize="18sp"
+                            android:textColor="@color/gray"
+                            android:background="@color/gray"
+                            android:textStyle="bold"
+                            tools:text="@string/title"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/gray"
+                            android:background="@color/gray"
+                            tools:text="@string/tagline"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginTop="8dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/gray"
+                            android:background="@color/gray"
+                            tools:text="@string/date"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/gray"
+                            android:background="@color/gray"
+                            tools:text="@string/genre"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/gray"
+                            android:background="@color/gray"
+                            tools:text="@string/runtime"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginTop="8dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/gray"
+                            android:background="@color/gray"
+                            tools:text="@string/overview"/>
+
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recommendations"
+                    android:textSize="18sp"
+                    android:textColor="@color/black87"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRecommendations"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="8dp"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_list_poster"/>
+
+                <include
+                    android:id="@+id/sflRecommendations"
+                    layout="@layout/poster_shimmer" />
+
+                <include
+                    android:id="@+id/emptyRecommendations"
+                    android:visibility="gone"
+                    layout="@layout/poster_empty"/>
+
+                <include
+                    android:id="@+id/errorRecommendations"
+                    layout="@layout/error"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/similar"
+                    android:textSize="18sp"
+                    android:textColor="@color/black87"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="8dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSimilar"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_list_poster"/>
+
+                <include
+                    android:id="@+id/sflSimilar"
+                    layout="@layout/poster_shimmer" />
+
+                <include
+                    android:id="@+id/emptySimilar"
+                    android:visibility="gone"
+                    layout="@layout/poster_empty"/>
+
+                <include
+                    android:id="@+id/errorSimilar"
+                    layout="@layout/error"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"/>
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginBottom="48dp"/>
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.cardview.widget.CardView>

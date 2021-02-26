@@ -2,6 +2,7 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.home.HomeFragment">
@@ -74,8 +75,28 @@
                 android:layout_height="420dp"
                 android:orientation="horizontal"
                 android:layout_marginVertical="8dp"
+                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_list_movie"/>
+
+            <include
+                android:id="@+id/sflSearch"
+                android:visibility="gone"
+                layout="@layout/movie_shimmer"/>
+
+            <include
+                android:id="@+id/emptySearch"
+                layout="@layout/movie_empty"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="420dp"/>
+
+            <include
+                android:id="@+id/errorSearch"
+                layout="@layout/error"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="420dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -92,8 +113,27 @@
                 android:layout_height="150dp"
                 android:orientation="horizontal"
                 android:layout_marginVertical="8dp"
+                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_list_poster"/>
+            
+            <include
+                android:id="@+id/sflPopular"
+                layout="@layout/poster_shimmer" />
+
+            <include
+                android:id="@+id/emptyPopular"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                layout="@layout/poster_empty"/>
+
+            <include
+                android:id="@+id/errorPopular"
+                layout="@layout/error"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -110,8 +150,27 @@
                 android:layout_height="150dp"
                 android:orientation="horizontal"
                 android:layout_marginVertical="8dp"
+                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_list_poster"/>
+
+            <include
+                android:id="@+id/sflNowPlaying"
+                layout="@layout/poster_shimmer" />
+
+            <include
+                android:id="@+id/emptyNowPlaying"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                layout="@layout/poster_empty"/>
+
+            <include
+                android:id="@+id/errorNowPlaying"
+                layout="@layout/error"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -128,8 +187,27 @@
                 android:layout_height="150dp"
                 android:orientation="horizontal"
                 android:layout_marginVertical="8dp"
+                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_list_poster"/>
+
+            <include
+                android:id="@+id/sflTopRated"
+                layout="@layout/poster_shimmer" />
+
+            <include
+                android:id="@+id/emptyTopRated"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                layout="@layout/poster_empty"/>
+
+            <include
+                android:id="@+id/errorTopRated"
+                layout="@layout/error"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -146,8 +224,27 @@
                 android:layout_height="150dp"
                 android:orientation="horizontal"
                 android:layout_marginVertical="8dp"
+                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_list_poster"/>
+
+            <include
+                android:id="@+id/sflUpcoming"
+                layout="@layout/poster_shimmer" />
+
+            <include
+                android:id="@+id/emptyUpcoming"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                layout="@layout/poster_empty"/>
+
+            <include
+                android:id="@+id/errorUpcoming"
+                layout="@layout/error"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
 
         </LinearLayout>
 

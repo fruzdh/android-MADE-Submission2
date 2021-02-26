@@ -24,23 +24,31 @@ class DetailViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
     val movieSimilar: LiveData<Resource<List<Movie>>>
         get() = _movieSimilar
 
+    private val id = MutableLiveData<Int>()
+
+    fun setId(id: Int) {
+        this.id.value = id
+    }
+
     fun updateMovieDetail(movie: MovieDetail, newState: Boolean) =
         movieUseCase.updateMovieDetail(movie, newState)
 
-    fun setItem(id: Int) {
-        viewModelScope.launch {
-            movieUseCase.getMovieDetail(id).collect {
-                _movieDetail.value = it
+    fun setItem() {
+        if (id.value != null) {
+            viewModelScope.launch {
+                movieUseCase.getMovieDetail(id.value!!).collect {
+                    _movieDetail.value = it
+                }
             }
-        }
-        viewModelScope.launch {
-            movieUseCase.getMovieRecommendations(id).collect {
-                _movieRecommendations.value = it
+            viewModelScope.launch {
+                movieUseCase.getMovieRecommendations(id.value!!).collect {
+                    _movieRecommendations.value = it
+                }
             }
-        }
-        viewModelScope.launch {
-            movieUseCase.getMovieSimilar(id).collect {
-                _movieSimilar.value = it
+            viewModelScope.launch {
+                movieUseCase.getMovieSimilar(id.value!!).collect {
+                    _movieSimilar.value = it
+                }
             }
         }
     }

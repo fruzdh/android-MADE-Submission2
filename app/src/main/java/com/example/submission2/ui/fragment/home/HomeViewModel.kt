@@ -31,11 +31,13 @@ class HomeViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
     val movieUpcoming: LiveData<Resource<List<Movie>>>
         get() = _movieUpcoming
 
+    private val query = MutableLiveData<String>()
+
     init {
         loadItem()
     }
 
-    private fun loadItem() {
+    fun loadItem() {
         viewModelScope.launch {
             movieUseCase.getMoviePopular().collect {
                 _moviePopular.value = it
@@ -58,10 +60,16 @@ class HomeViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
         }
     }
 
-    fun searchItem(query: String) {
+    fun setQuery(query: String) {
+        this.query.value = query
+    }
+
+    fun searchItem() {
         viewModelScope.launch {
-            movieUseCase.getMovieSearch(query).collect {
-                _movieSearch.value = it
+            if (query.value != null) {
+                movieUseCase.getMovieSearch(query.value!!).collect {
+                    _movieSearch.value = it
+                }
             }
         }
     }

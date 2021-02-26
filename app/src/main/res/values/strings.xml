@@ -13,4 +13,6 @@
     <string name="similar">Similar</string>
     <string name="back">Back</string>
     <string name="date">Date</string>
+    <string name="exit">Press back again to exit</string>
+    <string name="add_to_favorite">add to favorite</string>
 </resources>

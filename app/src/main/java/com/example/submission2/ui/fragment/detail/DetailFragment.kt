@@ -9,6 +9,10 @@ import com.example.submission2.R
 
 class DetailFragment : Fragment() {
 
+    companion object {
+        const val extraId = "extraId"
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
