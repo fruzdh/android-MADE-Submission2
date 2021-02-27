@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl"
+    android:visibility="gone"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:layout_margin="8dp"
-    android:visibility="gone">
+    android:layout_height="750dp"
+    android:layout_margin="8dp">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="empty-state.json"
+        app:lottie_fileName="empty.json"
         app:lottie_loop="true" />
 
     <TextView

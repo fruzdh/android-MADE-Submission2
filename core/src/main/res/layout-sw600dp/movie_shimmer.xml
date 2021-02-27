@@ -16,19 +16,19 @@
         android:orientation="horizontal">
 
         <include layout="@layout/item_list_movie_placeholder"
-            android:layout_height="350dp"
+            android:layout_height="625dp"
             android:layout_marginHorizontal="8dp"
-            android:layout_width="210dp"/>
+            android:layout_width="375dp"/>
 
         <include layout="@layout/item_list_movie_placeholder"
-            android:layout_height="420dp"
+            android:layout_height="750dp"
             android:layout_marginHorizontal="8dp"
-            android:layout_width="250dp"/>
+            android:layout_width="450dp"/>
 
         <include layout="@layout/item_list_movie_placeholder"
-            android:layout_height="350dp"
+            android:layout_height="625dp"
             android:layout_marginHorizontal="8dp"
-            android:layout_width="210dp"/>
+            android:layout_width="375dp"/>
 
     </LinearLayout>
 

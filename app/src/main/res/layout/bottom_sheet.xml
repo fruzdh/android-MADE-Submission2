@@ -9,7 +9,7 @@
     android:layout_marginBottom="-32dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     app:behavior_hideable="true"
-    app:behavior_peekHeight="100dp"
+    app:behavior_peekHeight="132dp"
     app:cardCornerRadius="32dp">
 
     <LinearLayout
@@ -209,10 +209,8 @@
 
                 <include
                     android:id="@+id/errorRecommendations"
-                    layout="@layout/error"
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
+                    layout="@layout/poster_error"
+                    android:visibility="gone" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -246,10 +244,8 @@
 
                 <include
                     android:id="@+id/errorSimilar"
-                    layout="@layout/error"
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
+                    layout="@layout/poster_error"
+                    android:visibility="gone" />
 
             </LinearLayout>
 

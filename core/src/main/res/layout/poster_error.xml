@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cl"
     android:layout_width="match_parent"
     android:layout_height="150dp"
@@ -17,20 +18,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="empty-state.json"
+        app:lottie_fileName="error.json"
         app:lottie_loop="true" />
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/empty_data"
         android:textAlignment="center"
         android:textColor="@color/black87"
         android:textStyle="bold"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="@string/error"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
