@@ -75,10 +75,10 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSearch"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="166dp"
                 android:orientation="horizontal"
-                android:layout_marginVertical="8dp"
                 android:visibility="gone"
+                android:layout_marginVertical="8dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_list_movie"/>
 
@@ -343,6 +343,10 @@
                 android:layout_marginTop="8dp"
                 android:visibility="gone"
                 android:text="@string/error" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"/>
 
         </LinearLayout>
 

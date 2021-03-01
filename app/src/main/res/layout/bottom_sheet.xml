@@ -7,13 +7,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="-32dp"
+    android:layout_gravity="bottom"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-    app:behavior_hideable="true"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="132dp"
     app:cardCornerRadius="32dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="32dp"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
@@ -23,14 +26,15 @@
             android:layout_margin="8dp"
             app:cardCornerRadius="3dp">
 
-            <View
+            <Button
+                android:id="@+id/btnState"
                 android:layout_width="50dp"
                 android:layout_height="5dp"
-                android:background="@color/black60" />
+                android:backgroundTint="@color/black60" />
 
         </androidx.cardview.widget.CardView>
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -201,15 +205,38 @@
                     android:id="@+id/sflRecommendations"
                     layout="@layout/poster_shimmer" />
 
-                <include
-                    android:id="@+id/emptyRecommendations"
-                    android:visibility="gone"
-                    layout="@layout/poster_empty"/>
-
-                <include
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/errorRecommendations"
-                    layout="@layout/error"
-                    android:visibility="gone" />
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/error"
+                    app:lottie_loop="true" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/emptyRecommendations"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/empty_state"
+                    app:lottie_loop="true" />
+
+                <TextView
+                    android:id="@+id/tvRecommendations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/black87"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    android:text="@string/error" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -236,24 +263,42 @@
                     android:id="@+id/sflSimilar"
                     layout="@layout/poster_shimmer" />
 
-                <include
-                    android:id="@+id/emptySimilar"
-                    android:visibility="gone"
-                    layout="@layout/poster_empty"/>
-
-                <include
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/errorSimilar"
-                    layout="@layout/error"
-                    android:visibility="gone" />
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/error"
+                    app:lottie_loop="true" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/emptySimilar"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/empty_state"
+                    app:lottie_loop="true" />
+
+                <TextView
+                    android:id="@+id/tvSimilar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/black87"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    android:text="@string/error" />
 
             </LinearLayout>
 
-        </ScrollView>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_marginBottom="48dp"/>
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 

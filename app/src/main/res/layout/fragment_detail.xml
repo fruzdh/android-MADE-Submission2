@@ -2,9 +2,10 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/white"
     tools:context=".ui.fragment.detail.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +18,7 @@
             android:layout_height="0dp"
             android:contentDescription="@string/poster"
             android:scaleType="centerCrop"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="150dp"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:cardCornerRadius="32dp"
+            app:cardCornerRadius="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -44,10 +45,6 @@
                 android:src="@drawable/ic_baseline_keyboard_backspace" />
 
         </androidx.cardview.widget.CardView>
-
-        <include
-            android:id="@+id/bottom_sheet"
-            layout="@layout/bottom_sheet" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
@@ -82,12 +79,12 @@
             android:layout_marginStart="32dp"
             android:layout_marginBottom="16dp"
             android:indeterminateOnly="false"
+            android:max="100"
             android:progressDrawable="@drawable/circle"
-            android:rotation="-90"
             android:elevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:progress="77" />
+            tools:progress="80" />
 
         <TextView
             android:id="@+id/tvVote"
@@ -106,7 +103,7 @@
             android:id="@+id/sfl_image"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="150dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -121,14 +118,66 @@
 
         </com.facebook.shimmer.ShimmerFrameLayout>
 
-        <include
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/errorDetail"
-            layout="@layout/error"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/error"
+            app:lottie_loop="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/cardView"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/emptyDetail"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="32dp"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/empty_state"
+            app:lottie_loop="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView"/>
+
+        <TextView
+            android:id="@+id/tvDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/black87"
+            android:textStyle="bold"
+            android:layout_marginTop="240dp"
+            android:visibility="gone"
+            android:text="@string/error"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView"/>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/cl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView"
+            app:layout_constraintBottom_toTopOf="@id/cardView2">
+
+            <include
+                android:id="@+id/bottom_sheet"
+                layout="@layout/bottom_sheet" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

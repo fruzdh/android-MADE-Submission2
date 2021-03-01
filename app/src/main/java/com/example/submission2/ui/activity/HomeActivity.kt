@@ -64,7 +64,7 @@ class HomeActivity : AppCompatActivity() {
             Toast.makeText(this, getString(R.string.exit), Toast.LENGTH_SHORT).show()
 
             supportActionBar?.hide()
-            Timer().schedule(3000) {
+            Timer().schedule(1000) {
                 pressed = false
             }
         } else {

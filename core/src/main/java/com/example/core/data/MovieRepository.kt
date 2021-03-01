@@ -22,7 +22,7 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
                         try {
                             DataMapper.mapMovieDetailEntityToMovieDetail(it)
                         } catch (e: NullPointerException) {
-                            MovieDetail(-1, "", null, "", "", null, null, null, false)
+                            MovieDetail(-1, "", null, "", "", null, null, null, 0.0f, false)
                         }
                     }
             }

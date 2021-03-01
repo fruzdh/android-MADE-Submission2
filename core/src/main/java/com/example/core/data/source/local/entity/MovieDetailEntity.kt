@@ -33,6 +33,9 @@ data class MovieDetailEntity(
     @ColumnInfo(name = "poster_path")
     val poster_path: String?,
 
+    @ColumnInfo(name = "vote_average")
+    val vote_average: Float,
+
     @ColumnInfo(name = "favorite")
     var favorite: Boolean = false
 )

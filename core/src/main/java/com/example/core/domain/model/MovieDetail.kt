@@ -9,5 +9,6 @@ data class MovieDetail(
     val runtime: Int?,
     val overview: String?,
     val poster_path: String?,
+    val vote_average: Float,
     var favorite: Boolean
 )

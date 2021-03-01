@@ -15,7 +15,8 @@ object DataMapper {
             genres = input.genres.joinToString(", ") { it.name },
             runtime = input.runtime,
             overview = input.overview,
-            poster_path = input.poster_path
+            poster_path = input.poster_path,
+            vote_average = input.vote_average
     )
 
     fun mapMovieResponseToMovieNowPlayingEntity(input: List<MovieResponse>): List<MovieNowPlayingEntity> =
@@ -99,6 +100,7 @@ object DataMapper {
             runtime = input.runtime,
             overview = input.overview,
             poster_path = input.poster_path,
+            vote_average = input.vote_average,
             favorite = input.favorite
     )
 
@@ -191,6 +193,7 @@ object DataMapper {
             runtime = input.runtime,
             overview = input.overview,
             poster_path = input.poster_path,
+            vote_average = input.vote_average,
             favorite = input.favorite
     )
 }

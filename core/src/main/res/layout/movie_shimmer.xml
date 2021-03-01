@@ -8,21 +8,6 @@
     android:layout_marginVertical="8dp"
     app:shimmer_auto_start="true">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <include layout="@layout/item_list_movie_placeholder"/>
-            <include layout="@layout/item_list_movie_placeholder"/>
-            <include layout="@layout/item_list_movie_placeholder"/>
-
-        </LinearLayout>
-
-    </ScrollView>
+    <include layout="@layout/item_list_movie_placeholder"/>
 
 </com.facebook.shimmer.ShimmerFrameLayout>
