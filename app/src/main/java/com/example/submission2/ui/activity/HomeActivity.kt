@@ -24,24 +24,28 @@ class HomeActivity : AppCompatActivity() {
         _binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        supportActionBar?.setLogo(R.drawable.ic_baseline_local_movies)
+        supportActionBar?.hide()
 
-        binding?.btmNav?.add(MeowBottomNavigation.Model(1, R.drawable.ic_baseline_home))
-        binding?.btmNav?.add(MeowBottomNavigation.Model(2, R.drawable.ic_baseline_favorite))
-
-        binding?.btmNav?.setOnClickMenuListener {
+        binding?.btmNav?.setOnNavigationItemSelectedListener {
             var fragment: Fragment? = null
-            when (it.id) {
-                1 -> fragment = HomeFragment()
-                2 -> fragment = Class.forName("com.example.favorite.ui.FavoriteFragment").newInstance() as Fragment
+            when (it.itemId) {
+                R.id.nav_home -> fragment = HomeFragment()
+                R.id.nav_favorite -> fragment = Class.forName("com.example.favorite.ui.FavoriteFragment").newInstance() as Fragment
             }
             if (fragment != null) {
-                supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                if (supportFragmentManager.backStackEntryCount > 0) {
+                    supportFragmentManager.popBackStack(
+                        null,
+                        FragmentManager.POP_BACK_STACK_INCLUSIVE
+                    )
+                }
                 supportFragmentManager.beginTransaction()
                         .replace(R.id.navHostFragment, fragment)
                         .addToBackStack(null)
                         .commit()
+                return@setOnNavigationItemSelectedListener true
             }
+            false
         }
 
         if (savedInstanceState == null) {

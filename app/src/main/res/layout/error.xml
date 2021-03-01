@@ -5,32 +5,32 @@
     android:id="@+id/cl"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:layout_margin="8dp"
-    android:visibility="gone">
+    android:layout_margin="8dp">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="0dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="empty-state.json"
+        app:lottie_rawRes="@raw/error"
         app:lottie_loop="true" />
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/empty_data"
         android:textAlignment="center"
         android:textColor="@color/black87"
         android:textStyle="bold"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/error"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

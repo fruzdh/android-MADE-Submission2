@@ -5,6 +5,7 @@
     android:id="@+id/swipe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".ui.fragment.home.HomeFragment">
 
     <ScrollView
@@ -31,12 +32,14 @@
                     android:layout_marginEnd="16dp"
                     android:layout_weight="1"
                     android:hint="@string/search_here"
-                    android:textColorHint="@color/black60"
                     app:boxCornerRadiusBottomEnd="32dp"
                     app:boxCornerRadiusBottomStart="32dp"
                     app:boxCornerRadiusTopEnd="32dp"
                     app:boxCornerRadiusTopStart="32dp"
                     app:boxStrokeColor="@color/black87"
+                    app:hintTextColor="@color/black60"
+                    app:hintTextAppearance="@style/myInputText"
+                    app:endIconMode="clear_text"
                     app:boxStrokeWidth="1dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -72,7 +75,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSearch"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:orientation="horizontal"
                 android:layout_marginVertical="8dp"
                 android:visibility="gone"
@@ -81,15 +84,41 @@
 
             <include
                 android:id="@+id/sflSearch"
+                android:visibility="gone"
                 layout="@layout/movie_shimmer"/>
 
-            <include
-                android:id="@+id/emptySearch"
-                layout="@layout/movie_empty" />
-
-            <include
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/errorSearch"
-                layout="@layout/movie_error"/>
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/error"
+                app:lottie_loop="true" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/emptySearch"
+                android:layout_width="260dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/empty"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:id="@+id/tvSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black87"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                android:text="@string/error" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -103,7 +132,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPopular"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginVertical="8dp"
                 android:visibility="gone"
@@ -114,13 +143,38 @@
                 android:id="@+id/sflPopular"
                 layout="@layout/poster_shimmer" />
 
-            <include
-                android:id="@+id/emptyPopular"
-                layout="@layout/poster_empty"/>
-
-            <include
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/errorPopular"
-                layout="@layout/poster_error" />
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/error"
+                app:lottie_loop="true" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/emptyPopular"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/empty_state"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:id="@+id/tvPopular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black87"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                android:text="@string/error" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -134,7 +188,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvNowPlaying"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginVertical="8dp"
                 android:visibility="gone"
@@ -145,13 +199,38 @@
                 android:id="@+id/sflNowPlaying"
                 layout="@layout/poster_shimmer" />
 
-            <include
-                android:id="@+id/emptyNowPlaying"
-                layout="@layout/poster_empty"/>
-
-            <include
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/errorNowPlaying"
-                layout="@layout/poster_error" />
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/error"
+                app:lottie_loop="true" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/emptyNowPlaying"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/empty_state"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:id="@+id/tvNowPlaying"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black87"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                android:text="@string/error" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -165,7 +244,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTopRated"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginVertical="8dp"
                 android:visibility="gone"
@@ -176,13 +255,38 @@
                 android:id="@+id/sflTopRated"
                 layout="@layout/poster_shimmer" />
 
-            <include
-                android:id="@+id/emptyTopRated"
-                layout="@layout/poster_empty"/>
-
-            <include
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/errorTopRated"
-                layout="@layout/poster_error" />
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/error"
+                app:lottie_loop="true" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/emptyTopRated"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/empty_state"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:id="@+id/tvTopRated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black87"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                android:text="@string/error" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -207,13 +311,38 @@
                 android:id="@+id/sflUpcoming"
                 layout="@layout/poster_shimmer" />
 
-            <include
-                android:id="@+id/emptyUpcoming"
-                layout="@layout/poster_empty"/>
-
-            <include
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/errorUpcoming"
-                layout="@layout/poster_error" />
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/error"
+                app:lottie_loop="true" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/emptyUpcoming"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/empty_state"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:id="@+id/tvUpcoming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black87"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                android:text="@string/error" />
 
         </LinearLayout>
 

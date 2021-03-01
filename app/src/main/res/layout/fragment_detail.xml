@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".ui.fragment.detail.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -122,7 +123,7 @@
 
         <include
             android:id="@+id/errorDetail"
-            layout="@layout/movie_error"
+            layout="@layout/error"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

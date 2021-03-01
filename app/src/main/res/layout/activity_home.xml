@@ -15,16 +15,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <meow.bottomnavigation.MeowBottomNavigation
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btmNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mbn_backgroundBottomColor="@color/white"
-        app:mbn_circleColor="@color/white"
-        app:mbn_rippleColor="@color/white"
-        app:mbn_shadowColor="@color/white"
-        app:mbn_defaultIconColor="@color/black60"
-        app:mbn_selectedIconColor="@color/black87"
+        android:background="@color/white"
+        android:elevation="0dp"
+        app:menu="@menu/btm_nav_menu"
+        app:itemIconTint="@drawable/btm_nav_item"
+        app:itemTextColor="@drawable/btm_nav_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

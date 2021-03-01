@@ -3,7 +3,6 @@
     <string name="poster">Poster</string>
     <string name="title">Title</string>
     <string name="overview">Overview</string>
-    <string name="remote_error">Please check your internet connection or try again later</string>
     <string name="error">There is something wrong</string>
     <string name="empty_data">Empty Data</string>
 </resources>

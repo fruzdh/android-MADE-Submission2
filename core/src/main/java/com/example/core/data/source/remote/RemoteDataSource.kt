@@ -1,7 +1,6 @@
 package com.example.core.data.source.remote
 
 import android.content.res.Resources
-import com.example.core.BuildConfig
 import com.example.core.Config
 import com.example.core.R
 import com.example.core.data.source.remote.network.ApiResponse
@@ -27,7 +26,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e : Exception) {
-                emit(ApiResponse.Error(Resources.getSystem().getString(R.string.remote_error)))
+                emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -43,7 +42,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e : Exception) {
-                emit(ApiResponse.Error(Resources.getSystem().getString(R.string.remote_error)))
+                emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -59,7 +58,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e : Exception) {
-                emit(ApiResponse.Error(Resources.getSystem().getString(R.string.remote_error)))
+                emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -75,7 +74,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e : Exception) {
-                emit(ApiResponse.Error(Resources.getSystem().getString(R.string.remote_error)))
+                emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -86,7 +85,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 val response = apiService.getMovieDetail(id, Config.apiKey)
                 emit(ApiResponse.Success(response))
             } catch (e : Exception) {
-                emit(ApiResponse.Error(Resources.getSystem().getString(R.string.remote_error)))
+                emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -102,7 +101,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e : Exception) {
-                emit(ApiResponse.Error(Resources.getSystem().getString(R.string.remote_error)))
+                emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -118,7 +117,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e : Exception) {
-                emit(ApiResponse.Error(Resources.getSystem().getString(R.string.remote_error)))
+                emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -134,7 +133,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e : Exception) {
-                emit(ApiResponse.Error(Resources.getSystem().getString(R.string.remote_error)))
+                emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }

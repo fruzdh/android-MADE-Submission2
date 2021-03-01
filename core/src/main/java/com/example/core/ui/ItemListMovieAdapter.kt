@@ -43,7 +43,7 @@ class ItemListMovieAdapter : RecyclerView.Adapter<ItemListMovieAdapter.Holder>()
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder = Holder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_poster, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder = Holder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_movie, parent, false))
 
     override fun onBindViewHolder(holder: Holder, position: Int) = holder.bind(list[position])
 
