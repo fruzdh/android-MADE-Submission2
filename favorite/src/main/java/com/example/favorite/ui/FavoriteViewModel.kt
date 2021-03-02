@@ -19,7 +19,7 @@ class FavoriteViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
         loadItem()
     }
 
-    private fun loadItem() {
+    fun loadItem() {
         viewModelScope.launch {
             movieUseCase.getMovieFavorite().collect {
                 _movieFavorite.value = it

@@ -85,7 +85,7 @@
             <include
                 android:id="@+id/sflSearch"
                 android:visibility="gone"
-                layout="@layout/movie_shimmer"/>
+                layout="@layout/movie_shimmer_horizontal"/>
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/errorSearch"

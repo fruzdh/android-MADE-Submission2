@@ -307,7 +307,6 @@ class HomeFragment : Fragment() {
                         }
                     }
                 } else {
-                    binding?.tvSearch?.text = getString(R.string.empty_data)
                     binding?.rvSearch?.visibility = View.GONE
                     binding?.errorSearch?.visibility = View.GONE
                     binding?.emptySearch?.visibility = View.GONE

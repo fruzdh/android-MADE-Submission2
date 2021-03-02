@@ -226,7 +226,7 @@ class DetailFragment : Fragment() {
         binding?.bottomSheet?.tvTagline?.text = detail.tagline
         binding?.bottomSheet?.tvDate?.text = detail.release_date
         binding?.bottomSheet?.tvGenre?.text = detail.genres
-        binding?.bottomSheet?.tvRuntime?.text = detail.runtime.toString()
+        binding?.bottomSheet?.tvRuntime?.text = getString(R.string.minutes, detail.runtime)
         binding?.bottomSheet?.tvOverview?.text = detail.overview
 
         val rate = (detail.vote_average * 10).toInt()
