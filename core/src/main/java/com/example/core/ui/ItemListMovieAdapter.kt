@@ -28,9 +28,9 @@ class ItemListMovieAdapter : RecyclerView.Adapter<ItemListMovieAdapter.Holder>()
         fun bind(data: Movie) {
             with(binding) {
                 Glide.with(itemView.context)
-                        .load(Config.baseUrlImage + data.poster_path)
-                        .error(R.drawable.ic_baseline_priority_high)
-                        .into(ivPoster)
+                    .load(Config.baseUrlImage + data.poster_path)
+                    .error(R.drawable.ic_baseline_priority_high)
+                    .into(ivPoster)
                 tvTitle.text = data.title
                 tvOverview.text = data.overview
             }
@@ -43,7 +43,8 @@ class ItemListMovieAdapter : RecyclerView.Adapter<ItemListMovieAdapter.Holder>()
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder = Holder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_movie, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder =
+        Holder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_movie, parent, false))
 
     override fun onBindViewHolder(holder: Holder, position: Int) = holder.bind(list[position])
 

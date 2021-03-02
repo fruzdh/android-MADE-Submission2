@@ -12,19 +12,22 @@ import com.example.core.utils.AppExecutors
 import com.example.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import java.lang.NullPointerException
 
-class MovieRepository(private val remoteDataSource: RemoteDataSource, private val localDataSource: LocalDataSource, private val appExecutors: AppExecutors) : IMovieRepository {
+class MovieRepository(
+    private val remoteDataSource: RemoteDataSource,
+    private val localDataSource: LocalDataSource,
+    private val appExecutors: AppExecutors
+) : IMovieRepository {
     override fun getMovieDetail(id: Int): Flow<Resource<MovieDetail>> =
         object : NetworkBoundResource<MovieDetail, MovieDetailResponse>() {
             override fun loadFromDB(): Flow<MovieDetail> {
                 return localDataSource.getMovieDetail(id).map {
-                        try {
-                            DataMapper.mapMovieDetailEntityToMovieDetail(it)
-                        } catch (e: NullPointerException) {
-                            MovieDetail(-1, "", null, "", "", null, null, null, 0.0f, false)
-                        }
+                    try {
+                        DataMapper.mapMovieDetailEntityToMovieDetail(it)
+                    } catch (e: NullPointerException) {
+                        MovieDetail(-1, "", null, "", "", null, null, null, 0.0f, false)
                     }
+                }
             }
 
             override fun shouldFetch(
@@ -36,7 +39,8 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
                 } else {
                     when (remote) {
                         is ApiResponse.Success -> {
-                            val entity = DataMapper.mapMovieDetailResponseToMovieDetailEntity(remote.data)
+                            val entity =
+                                DataMapper.mapMovieDetailResponseToMovieDetailEntity(remote.data)
                             entity.favorite = data!!.favorite
                             val domain = DataMapper.mapMovieDetailEntityToMovieDetail(entity)
                             domain != data
@@ -55,7 +59,11 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
                 remoteDataSource.getMovieDetail(id)
 
             override suspend fun saveCallResult(data: MovieDetailResponse) =
-                localDataSource.insertMovieDetail(DataMapper.mapMovieDetailResponseToMovieDetailEntity(data))
+                localDataSource.insertMovieDetail(
+                    DataMapper.mapMovieDetailResponseToMovieDetailEntity(
+                        data
+                    )
+                )
         }.asFlow()
 
     override fun getMovieFavorite(): Flow<List<Movie>> =
@@ -65,7 +73,11 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
 
     override fun updateMovieDetail(movieDetail: MovieDetail, newState: Boolean) =
         appExecutors.diskIO().execute {
-            localDataSource.updateMovieDetail(DataMapper.mapMovieDetailToMovieDetailEntity(movieDetail), newState)
+            localDataSource.updateMovieDetail(
+                DataMapper.mapMovieDetailToMovieDetailEntity(
+                    movieDetail
+                ), newState
+            )
         }
 
     override fun getMovieNowPlaying(): Flow<Resource<List<Movie>>> =
@@ -98,7 +110,11 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
                 remoteDataSource.getMovieNowPlaying()
 
             override suspend fun saveCallResult(data: List<MovieResponse>) =
-                localDataSource.insertMovieNowPlaying(DataMapper.mapMovieResponseToMovieNowPlayingEntity(data))
+                localDataSource.insertMovieNowPlaying(
+                    DataMapper.mapMovieResponseToMovieNowPlayingEntity(
+                        data
+                    )
+                )
         }.asFlow()
 
     override fun getMoviePopular(): Flow<Resource<List<Movie>>> =
@@ -131,7 +147,11 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
                 remoteDataSource.getMoviePopular()
 
             override suspend fun saveCallResult(data: List<MovieResponse>) =
-                localDataSource.insertMoviePopular(DataMapper.mapMovieResponseToMoviePopularEntity(data))
+                localDataSource.insertMoviePopular(
+                    DataMapper.mapMovieResponseToMoviePopularEntity(
+                        data
+                    )
+                )
         }.asFlow()
 
     override fun getMovieRecommendations(id: Int): Flow<Resource<List<Movie>>> =
@@ -147,7 +167,8 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
             ): Boolean {
                 return when (remote) {
                     is ApiResponse.Success -> {
-                        val entity = DataMapper.mapMovieResponseToMovieRecommendationsEntity(id, remote.data)
+                        val entity =
+                            DataMapper.mapMovieResponseToMovieRecommendationsEntity(id, remote.data)
                         val domain = DataMapper.mapMovieRecommendationsEntityToMovie(entity)
                         domain != data
                     }
@@ -164,7 +185,12 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
                 remoteDataSource.getMovieRecommendations(id)
 
             override suspend fun saveCallResult(data: List<MovieResponse>) =
-                localDataSource.insertMovieRecommendations(DataMapper.mapMovieResponseToMovieRecommendationsEntity(id, data))
+                localDataSource.insertMovieRecommendations(
+                    DataMapper.mapMovieResponseToMovieRecommendationsEntity(
+                        id,
+                        data
+                    )
+                )
         }.asFlow()
 
     override fun getMovieSearch(query: String): Flow<Resource<List<Movie>>> =
@@ -197,7 +223,11 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
                 remoteDataSource.getMovieSearch(query)
 
             override suspend fun saveCallResult(data: List<MovieResponse>) =
-                localDataSource.insertMovieSearch(DataMapper.mapMovieResponseToMovieSearchEntity(data))
+                localDataSource.insertMovieSearch(
+                    DataMapper.mapMovieResponseToMovieSearchEntity(
+                        data
+                    )
+                )
         }.asFlow()
 
     override fun getMovieSimilar(id: Int): Flow<Resource<List<Movie>>> =
@@ -213,7 +243,8 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
             ): Boolean {
                 return when (remote) {
                     is ApiResponse.Success -> {
-                        val entity = DataMapper.mapMovieResponseToMovieSimilarEntity(id, remote.data)
+                        val entity =
+                            DataMapper.mapMovieResponseToMovieSimilarEntity(id, remote.data)
                         val domain = DataMapper.mapMovieSimilarEntityToMovie(entity)
                         domain != data
                     }
@@ -230,7 +261,12 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
                 remoteDataSource.getMovieSimilar(id)
 
             override suspend fun saveCallResult(data: List<MovieResponse>) =
-                localDataSource.insertMovieSimilar(DataMapper.mapMovieResponseToMovieSimilarEntity(id, data))
+                localDataSource.insertMovieSimilar(
+                    DataMapper.mapMovieResponseToMovieSimilarEntity(
+                        id,
+                        data
+                    )
+                )
         }.asFlow()
 
     override fun getMovieTopRated(): Flow<Resource<List<Movie>>> =
@@ -263,7 +299,11 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
                 remoteDataSource.getMovieTopRated()
 
             override suspend fun saveCallResult(data: List<MovieResponse>) =
-                localDataSource.insertMovieTopRated(DataMapper.mapMovieResponseToMovieTopRatedEntity(data))
+                localDataSource.insertMovieTopRated(
+                    DataMapper.mapMovieResponseToMovieTopRatedEntity(
+                        data
+                    )
+                )
         }.asFlow()
 
     override fun getMovieUpcoming(): Flow<Resource<List<Movie>>> =
@@ -296,6 +336,10 @@ class MovieRepository(private val remoteDataSource: RemoteDataSource, private va
                 remoteDataSource.getMovieUpcoming()
 
             override suspend fun saveCallResult(data: List<MovieResponse>) =
-                localDataSource.insertMovieUpcoming(DataMapper.mapMovieResponseToMovieUpcomingEntity(data))
+                localDataSource.insertMovieUpcoming(
+                    DataMapper.mapMovieResponseToMovieUpcomingEntity(
+                        data
+                    )
+                )
         }.asFlow()
 }

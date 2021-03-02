@@ -1,10 +1,10 @@
 package com.example.submission2.ui.fragment.detail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.bumptech.glide.Glide
@@ -90,97 +90,157 @@ class DetailFragment : Fragment() {
                                     setData(detail.data!!)
                                     detailVisibility(2)
 
-                                    detailViewModel.movieRecommendations.observe(viewLifecycleOwner, { list ->
-                                        if (list != null) {
-                                            when (list) {
-                                                is Resource.Loading -> {
-                                                    binding?.bottomSheet?.rvRecommendations?.visibility = View.GONE
-                                                    binding?.bottomSheet?.emptyRecommendations?.visibility = View.GONE
-                                                    binding?.bottomSheet?.errorRecommendations?.visibility = View.GONE
-                                                    binding?.bottomSheet?.tvRecommendations?.visibility = View.GONE
-                                                    binding?.bottomSheet?.sflRecommendations?.sfl?.visibility = View.VISIBLE
-                                                }
-                                                is Resource.Success -> {
-                                                    if (list.data.isNullOrEmpty()) {
-                                                        binding?.bottomSheet?.tvRecommendations?.text = getString(R.string.empty_data)
-                                                        binding?.bottomSheet?.rvRecommendations?.visibility = View.GONE
-                                                        binding?.bottomSheet?.emptyRecommendations?.visibility = View.VISIBLE
-                                                        binding?.bottomSheet?.errorRecommendations?.visibility = View.GONE
-                                                        binding?.bottomSheet?.tvRecommendations?.visibility = View.VISIBLE
-                                                        binding?.bottomSheet?.sflRecommendations?.sfl?.visibility = View.GONE
-                                                    } else {
-                                                        recommendationsAdapter.setData(list.data)
-                                                        binding?.bottomSheet?.rvRecommendations?.visibility = View.VISIBLE
-                                                        binding?.bottomSheet?.emptyRecommendations?.visibility = View.GONE
-                                                        binding?.bottomSheet?.errorRecommendations?.visibility = View.GONE
-                                                        binding?.bottomSheet?.tvRecommendations?.visibility = View.GONE
-                                                        binding?.bottomSheet?.sflRecommendations?.sfl?.visibility = View.GONE
+                                    detailViewModel.movieRecommendations.observe(
+                                        viewLifecycleOwner,
+                                        { list ->
+                                            if (list != null) {
+                                                when (list) {
+                                                    is Resource.Loading -> {
+                                                        binding?.bottomSheet?.rvRecommendations?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.emptyRecommendations?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.errorRecommendations?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.tvRecommendations?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.sflRecommendations?.sfl?.visibility =
+                                                            View.VISIBLE
+                                                    }
+                                                    is Resource.Success -> {
+                                                        if (list.data.isNullOrEmpty()) {
+                                                            binding?.bottomSheet?.tvRecommendations?.text =
+                                                                getString(R.string.empty_data)
+                                                            binding?.bottomSheet?.rvRecommendations?.visibility =
+                                                                View.GONE
+                                                            binding?.bottomSheet?.emptyRecommendations?.visibility =
+                                                                View.VISIBLE
+                                                            binding?.bottomSheet?.errorRecommendations?.visibility =
+                                                                View.GONE
+                                                            binding?.bottomSheet?.tvRecommendations?.visibility =
+                                                                View.VISIBLE
+                                                            binding?.bottomSheet?.sflRecommendations?.sfl?.visibility =
+                                                                View.GONE
+                                                        } else {
+                                                            recommendationsAdapter.setData(list.data)
+                                                            binding?.bottomSheet?.rvRecommendations?.visibility =
+                                                                View.VISIBLE
+                                                            binding?.bottomSheet?.emptyRecommendations?.visibility =
+                                                                View.GONE
+                                                            binding?.bottomSheet?.errorRecommendations?.visibility =
+                                                                View.GONE
+                                                            binding?.bottomSheet?.tvRecommendations?.visibility =
+                                                                View.GONE
+                                                            binding?.bottomSheet?.sflRecommendations?.sfl?.visibility =
+                                                                View.GONE
+                                                        }
+                                                    }
+                                                    is Resource.Error -> {
+                                                        binding?.bottomSheet?.tvRecommendations?.text =
+                                                            getString(R.string.error)
+                                                        binding?.bottomSheet?.rvRecommendations?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.emptyRecommendations?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.errorRecommendations?.visibility =
+                                                            View.VISIBLE
+                                                        binding?.bottomSheet?.tvRecommendations?.visibility =
+                                                            View.VISIBLE
+                                                        binding?.bottomSheet?.sflRecommendations?.sfl?.visibility =
+                                                            View.GONE
                                                     }
                                                 }
-                                                is Resource.Error -> {
-                                                    binding?.bottomSheet?.tvRecommendations?.text = getString(R.string.error)
-                                                    binding?.bottomSheet?.rvRecommendations?.visibility = View.GONE
-                                                    binding?.bottomSheet?.emptyRecommendations?.visibility = View.GONE
-                                                    binding?.bottomSheet?.errorRecommendations?.visibility = View.VISIBLE
-                                                    binding?.bottomSheet?.tvRecommendations?.visibility = View.VISIBLE
-                                                    binding?.bottomSheet?.sflRecommendations?.sfl?.visibility = View.GONE
-                                                }
+                                            } else {
+                                                binding?.bottomSheet?.tvRecommendations?.text =
+                                                    getString(R.string.empty_data)
+                                                binding?.bottomSheet?.rvRecommendations?.visibility =
+                                                    View.GONE
+                                                binding?.bottomSheet?.emptyRecommendations?.visibility =
+                                                    View.VISIBLE
+                                                binding?.bottomSheet?.errorRecommendations?.visibility =
+                                                    View.GONE
+                                                binding?.bottomSheet?.tvRecommendations?.visibility =
+                                                    View.VISIBLE
+                                                binding?.bottomSheet?.sflRecommendations?.sfl?.visibility =
+                                                    View.GONE
                                             }
-                                        } else {
-                                            binding?.bottomSheet?.tvRecommendations?.text = getString(R.string.empty_data)
-                                            binding?.bottomSheet?.rvRecommendations?.visibility = View.GONE
-                                            binding?.bottomSheet?.emptyRecommendations?.visibility = View.VISIBLE
-                                            binding?.bottomSheet?.errorRecommendations?.visibility = View.GONE
-                                            binding?.bottomSheet?.tvRecommendations?.visibility = View.VISIBLE
-                                            binding?.bottomSheet?.sflRecommendations?.sfl?.visibility = View.GONE
-                                        }
-                                    })
+                                        })
 
-                                    detailViewModel.movieSimilar.observe(viewLifecycleOwner, { list ->
-                                        if (list != null) {
-                                            when (list) {
-                                                is Resource.Loading -> {
-                                                    binding?.bottomSheet?.rvSimilar?.visibility = View.GONE
-                                                    binding?.bottomSheet?.emptySimilar?.visibility = View.GONE
-                                                    binding?.bottomSheet?.errorSimilar?.visibility = View.GONE
-                                                    binding?.bottomSheet?.tvSimilar?.visibility = View.GONE
-                                                    binding?.bottomSheet?.sflSimilar?.sfl?.visibility = View.VISIBLE
-                                                }
-                                                is Resource.Success -> {
-                                                    if (list.data.isNullOrEmpty()) {
-                                                        binding?.bottomSheet?.tvSimilar?.text = getString(R.string.empty_data)
-                                                        binding?.bottomSheet?.rvSimilar?.visibility = View.GONE
-                                                        binding?.bottomSheet?.emptySimilar?.visibility = View.VISIBLE
-                                                        binding?.bottomSheet?.errorSimilar?.visibility = View.GONE
-                                                        binding?.bottomSheet?.tvSimilar?.visibility = View.VISIBLE
-                                                        binding?.bottomSheet?.sflSimilar?.sfl?.visibility = View.GONE
-                                                    } else {
-                                                        similarAdapter.setData(list.data)
-                                                        binding?.bottomSheet?.rvSimilar?.visibility = View.VISIBLE
-                                                        binding?.bottomSheet?.emptySimilar?.visibility = View.GONE
-                                                        binding?.bottomSheet?.errorSimilar?.visibility = View.GONE
-                                                        binding?.bottomSheet?.tvSimilar?.visibility = View.GONE
-                                                        binding?.bottomSheet?.sflSimilar?.sfl?.visibility = View.GONE
+                                    detailViewModel.movieSimilar.observe(
+                                        viewLifecycleOwner,
+                                        { list ->
+                                            if (list != null) {
+                                                when (list) {
+                                                    is Resource.Loading -> {
+                                                        binding?.bottomSheet?.rvSimilar?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.emptySimilar?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.errorSimilar?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.tvSimilar?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.sflSimilar?.sfl?.visibility =
+                                                            View.VISIBLE
+                                                    }
+                                                    is Resource.Success -> {
+                                                        if (list.data.isNullOrEmpty()) {
+                                                            binding?.bottomSheet?.tvSimilar?.text =
+                                                                getString(R.string.empty_data)
+                                                            binding?.bottomSheet?.rvSimilar?.visibility =
+                                                                View.GONE
+                                                            binding?.bottomSheet?.emptySimilar?.visibility =
+                                                                View.VISIBLE
+                                                            binding?.bottomSheet?.errorSimilar?.visibility =
+                                                                View.GONE
+                                                            binding?.bottomSheet?.tvSimilar?.visibility =
+                                                                View.VISIBLE
+                                                            binding?.bottomSheet?.sflSimilar?.sfl?.visibility =
+                                                                View.GONE
+                                                        } else {
+                                                            similarAdapter.setData(list.data)
+                                                            binding?.bottomSheet?.rvSimilar?.visibility =
+                                                                View.VISIBLE
+                                                            binding?.bottomSheet?.emptySimilar?.visibility =
+                                                                View.GONE
+                                                            binding?.bottomSheet?.errorSimilar?.visibility =
+                                                                View.GONE
+                                                            binding?.bottomSheet?.tvSimilar?.visibility =
+                                                                View.GONE
+                                                            binding?.bottomSheet?.sflSimilar?.sfl?.visibility =
+                                                                View.GONE
+                                                        }
+                                                    }
+                                                    is Resource.Error -> {
+                                                        binding?.bottomSheet?.tvSimilar?.text =
+                                                            getString(R.string.error)
+                                                        binding?.bottomSheet?.rvSimilar?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.emptySimilar?.visibility =
+                                                            View.GONE
+                                                        binding?.bottomSheet?.errorSimilar?.visibility =
+                                                            View.VISIBLE
+                                                        binding?.bottomSheet?.tvSimilar?.visibility =
+                                                            View.VISIBLE
+                                                        binding?.bottomSheet?.sflSimilar?.sfl?.visibility =
+                                                            View.GONE
                                                     }
                                                 }
-                                                is Resource.Error -> {
-                                                    binding?.bottomSheet?.tvSimilar?.text = getString(R.string.error)
-                                                    binding?.bottomSheet?.rvSimilar?.visibility = View.GONE
-                                                    binding?.bottomSheet?.emptySimilar?.visibility = View.GONE
-                                                    binding?.bottomSheet?.errorSimilar?.visibility = View.VISIBLE
-                                                    binding?.bottomSheet?.tvSimilar?.visibility = View.VISIBLE
-                                                    binding?.bottomSheet?.sflSimilar?.sfl?.visibility = View.GONE
-                                                }
+                                            } else {
+                                                binding?.bottomSheet?.tvSimilar?.text =
+                                                    getString(R.string.empty_data)
+                                                binding?.bottomSheet?.rvSimilar?.visibility =
+                                                    View.GONE
+                                                binding?.bottomSheet?.emptySimilar?.visibility =
+                                                    View.VISIBLE
+                                                binding?.bottomSheet?.errorSimilar?.visibility =
+                                                    View.GONE
+                                                binding?.bottomSheet?.tvSimilar?.visibility =
+                                                    View.VISIBLE
+                                                binding?.bottomSheet?.sflSimilar?.sfl?.visibility =
+                                                    View.GONE
                                             }
-                                        } else {
-                                            binding?.bottomSheet?.tvSimilar?.text = getString(R.string.empty_data)
-                                            binding?.bottomSheet?.rvSimilar?.visibility = View.GONE
-                                            binding?.bottomSheet?.emptySimilar?.visibility = View.VISIBLE
-                                            binding?.bottomSheet?.errorSimilar?.visibility = View.GONE
-                                            binding?.bottomSheet?.tvSimilar?.visibility = View.VISIBLE
-                                            binding?.bottomSheet?.sflSimilar?.sfl?.visibility = View.GONE
-                                        }
-                                    })
+                                        })
                                 } else {
                                     detailVisibility(3)
                                 }
@@ -198,13 +258,15 @@ class DetailFragment : Fragment() {
                 LinearSnapHelper().attachToRecyclerView(binding?.bottomSheet?.rvSimilar)
 
                 with(binding?.bottomSheet?.rvRecommendations) {
-                    this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                    this?.layoutManager =
+                        LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                     this?.setHasFixedSize(true)
                     this?.adapter = recommendationsAdapter
                 }
 
                 with(binding?.bottomSheet?.rvSimilar) {
-                    this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                    this?.layoutManager =
+                        LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                     this?.setHasFixedSize(true)
                     this?.adapter = similarAdapter
                 }
@@ -217,9 +279,9 @@ class DetailFragment : Fragment() {
     private fun setData(detail: MovieDetail) {
         binding?.ivPoster?.let { iv ->
             Glide.with(iv)
-                    .load(Config.baseUrlImage + detail.poster_path)
-                    .error(com.example.core.R.drawable.ic_baseline_priority_high)
-                    .into(iv)
+                .load(Config.baseUrlImage + detail.poster_path)
+                .error(com.example.core.R.drawable.ic_baseline_priority_high)
+                .into(iv)
         }
 
         binding?.bottomSheet?.tvTitle?.text = detail.title
@@ -338,8 +400,8 @@ class DetailFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         activity?.findViewById<View>(R.id.btmNav)?.visibility = View.VISIBLE
         _binding = null
     }

@@ -36,19 +36,21 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovieRecommendations(movieRecommendationsEntity: List<MovieRecommendationsEntity>)
 
-    @Query("SELECT * FROM MovieNowPlayingEntities WHERE title LIKE :query " +
-            "UNION " +
-            "SELECT * FROM MoviePopularEntities WHERE title LIKE :query " +
-            "UNION " +
-            "SELECT id, title, poster_path, overview FROM MovieRecommendationsEntities WHERE title LIKE :query " +
-            "UNION " +
-            "SELECT * FROM MovieSearchEntities WHERE title LIKE :query " +
-            "UNION " +
-            "SELECT id, title, poster_path, overview FROM MovieSimilarEntities WHERE title LIKE :query " +
-            "UNION " +
-            "SELECT * FROM MovieTopRatedEntities WHERE title LIKE :query " +
-            "UNION " +
-            "SELECT * FROM MovieUpcomingEntities WHERE title LIKE :query")
+    @Query(
+        "SELECT * FROM MovieNowPlayingEntities WHERE title LIKE :query " +
+                "UNION " +
+                "SELECT * FROM MoviePopularEntities WHERE title LIKE :query " +
+                "UNION " +
+                "SELECT id, title, poster_path, overview FROM MovieRecommendationsEntities WHERE title LIKE :query " +
+                "UNION " +
+                "SELECT * FROM MovieSearchEntities WHERE title LIKE :query " +
+                "UNION " +
+                "SELECT id, title, poster_path, overview FROM MovieSimilarEntities WHERE title LIKE :query " +
+                "UNION " +
+                "SELECT * FROM MovieTopRatedEntities WHERE title LIKE :query " +
+                "UNION " +
+                "SELECT * FROM MovieUpcomingEntities WHERE title LIKE :query"
+    )
     fun getMovieSearch(query: String): Flow<List<MovieSearchEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

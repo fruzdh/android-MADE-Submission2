@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/black60"/>
+            android:background="@color/black60" />
 
         <ImageView
             android:id="@+id/ivPoster"
@@ -32,12 +31,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:background="@color/gray"
             android:maxLines="2"
+            android:paddingHorizontal="32dp"
             android:textColor="@color/gray"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:background="@color/gray"
-            android:paddingHorizontal="32dp"
             app:layout_constraintStart_toEndOf="@+id/ivPoster"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/title" />
@@ -47,11 +46,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:background="@color/gray"
             android:maxLines="3"
+            android:paddingHorizontal="8dp"
             android:textColor="@color/gray"
             android:textSize="14sp"
-            android:background="@color/gray"
-            android:paddingHorizontal="8dp"
             app:layout_constraintStart_toEndOf="@+id/ivPoster"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle"
             tools:text="@string/overview" />

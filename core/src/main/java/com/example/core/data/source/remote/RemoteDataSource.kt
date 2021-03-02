@@ -1,18 +1,14 @@
 package com.example.core.data.source.remote
 
-import android.content.res.Resources
 import com.example.core.Config
-import com.example.core.R
 import com.example.core.data.source.remote.network.ApiResponse
 import com.example.core.data.source.remote.network.ApiService
-import com.example.core.data.source.remote.response.ListMovieResponse
 import com.example.core.data.source.remote.response.MovieDetailResponse
 import com.example.core.data.source.remote.response.MovieResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import retrofit2.http.Query
 
 class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovieNowPlaying(): Flow<ApiResponse<List<MovieResponse>>> {
@@ -25,7 +21,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 } else {
                     emit(ApiResponse.Empty)
                 }
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
@@ -41,7 +37,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 } else {
                     emit(ApiResponse.Empty)
                 }
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
@@ -57,7 +53,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 } else {
                     emit(ApiResponse.Empty)
                 }
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
@@ -73,7 +69,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 } else {
                     emit(ApiResponse.Empty)
                 }
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
@@ -84,7 +80,7 @@ class RemoteDataSource(private val apiService: ApiService) {
             try {
                 val response = apiService.getMovieDetail(id, Config.apiKey)
                 emit(ApiResponse.Success(response))
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
@@ -100,7 +96,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 } else {
                     emit(ApiResponse.Empty)
                 }
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
@@ -116,7 +112,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 } else {
                     emit(ApiResponse.Empty)
                 }
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
@@ -132,7 +128,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 } else {
                     emit(ApiResponse.Empty)
                 }
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)

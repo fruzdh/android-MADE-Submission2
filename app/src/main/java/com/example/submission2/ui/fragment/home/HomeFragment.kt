@@ -29,8 +29,8 @@ class HomeFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding?.root
@@ -328,31 +328,36 @@ class HomeFragment : Fragment() {
             }
 
             with(binding?.rvPopular) {
-                this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                this?.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 this?.setHasFixedSize(true)
                 this?.adapter = popularAdapter
             }
 
             with(binding?.rvNowPlaying) {
-                this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                this?.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 this?.setHasFixedSize(true)
                 this?.adapter = nowPlayingAdapter
             }
 
             with(binding?.rvTopRated) {
-                this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                this?.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 this?.setHasFixedSize(true)
                 this?.adapter = topRatedAdapter
             }
 
             with(binding?.rvUpcoming) {
-                this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                this?.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 this?.setHasFixedSize(true)
                 this?.adapter = upcomingAdapter
             }
 
             with(binding?.rvSearch) {
-                this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                this?.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 this?.setHasFixedSize(true)
                 this?.adapter = searchAdapter
             }
@@ -373,8 +378,8 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.facebook.shimmer.ShimmerFrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/sfl"
     android:layout_width="match_parent"
@@ -17,13 +16,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <include layout="@layout/item_list_poster_placeholder"/>
-            <include layout="@layout/item_list_poster_placeholder"/>
-            <include layout="@layout/item_list_poster_placeholder"/>
-            <include layout="@layout/item_list_poster_placeholder"/>
-            <include layout="@layout/item_list_poster_placeholder"/>
-            <include layout="@layout/item_list_poster_placeholder"/>
-            <include layout="@layout/item_list_poster_placeholder"/>
+            <include layout="@layout/item_list_poster_placeholder" />
+
+            <include layout="@layout/item_list_poster_placeholder" />
+
+            <include layout="@layout/item_list_poster_placeholder" />
+
+            <include layout="@layout/item_list_poster_placeholder" />
+
+            <include layout="@layout/item_list_poster_placeholder" />
+
+            <include layout="@layout/item_list_poster_placeholder" />
+
+            <include layout="@layout/item_list_poster_placeholder" />
 
         </LinearLayout>
 

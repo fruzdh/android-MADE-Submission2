@@ -1,9 +1,8 @@
 package com.example.submission2.ui.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.submission2.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.submission2.databinding.ActivityMainBinding
 import java.util.*
 import kotlin.concurrent.schedule

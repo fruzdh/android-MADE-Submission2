@@ -7,23 +7,31 @@ import com.example.core.domain.repository.IMovieRepository
 import kotlinx.coroutines.flow.Flow
 
 class MovieInteractor(private val movieRepository: IMovieRepository) : MovieUseCase {
-    override fun getMovieDetail(id: Int): Flow<Resource<MovieDetail>> = movieRepository.getMovieDetail(id)
+    override fun getMovieDetail(id: Int): Flow<Resource<MovieDetail>> =
+        movieRepository.getMovieDetail(id)
 
     override fun getMovieFavorite(): Flow<List<Movie>> = movieRepository.getMovieFavorite()
 
-    override fun updateMovieDetail(movieDetail: MovieDetail, newState: Boolean) = movieRepository.updateMovieDetail(movieDetail, newState)
+    override fun updateMovieDetail(movieDetail: MovieDetail, newState: Boolean) =
+        movieRepository.updateMovieDetail(movieDetail, newState)
 
-    override fun getMovieNowPlaying(): Flow<Resource<List<Movie>>> = movieRepository.getMovieNowPlaying()
+    override fun getMovieNowPlaying(): Flow<Resource<List<Movie>>> =
+        movieRepository.getMovieNowPlaying()
 
     override fun getMoviePopular(): Flow<Resource<List<Movie>>> = movieRepository.getMoviePopular()
 
-    override fun getMovieRecommendations(id: Int): Flow<Resource<List<Movie>>> = movieRepository.getMovieRecommendations(id)
+    override fun getMovieRecommendations(id: Int): Flow<Resource<List<Movie>>> =
+        movieRepository.getMovieRecommendations(id)
 
-    override fun getMovieSearch(query: String): Flow<Resource<List<Movie>>> = movieRepository.getMovieSearch(query)
+    override fun getMovieSearch(query: String): Flow<Resource<List<Movie>>> =
+        movieRepository.getMovieSearch(query)
 
-    override fun getMovieSimilar(id: Int): Flow<Resource<List<Movie>>> = movieRepository.getMovieSimilar(id)
+    override fun getMovieSimilar(id: Int): Flow<Resource<List<Movie>>> =
+        movieRepository.getMovieSimilar(id)
 
-    override fun getMovieTopRated(): Flow<Resource<List<Movie>>> = movieRepository.getMovieTopRated()
+    override fun getMovieTopRated(): Flow<Resource<List<Movie>>> =
+        movieRepository.getMovieTopRated()
 
-    override fun getMovieUpcoming(): Flow<Resource<List<Movie>>> = movieRepository.getMovieUpcoming()
+    override fun getMovieUpcoming(): Flow<Resource<List<Movie>>> =
+        movieRepository.getMovieUpcoming()
 }

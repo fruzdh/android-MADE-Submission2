@@ -8,8 +8,8 @@ import com.example.core.data.Resource
 import com.example.core.domain.model.Movie
 import com.example.core.domain.model.MovieDetail
 import com.example.core.domain.usecase.MovieUseCase
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class DetailViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
     private val _movieDetail = MutableLiveData<Resource<MovieDetail>>()

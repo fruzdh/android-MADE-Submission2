@@ -1,8 +1,8 @@
 package com.example.submission2.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.submission2.R
@@ -29,7 +29,9 @@ class HomeActivity : AppCompatActivity() {
             var fragment: Fragment? = null
             when (it.itemId) {
                 R.id.nav_home -> fragment = HomeFragment()
-                R.id.nav_favorite -> fragment = Class.forName("com.example.favorite.ui.FavoriteFragment").newInstance() as Fragment
+                R.id.nav_favorite -> fragment =
+                    Class.forName("com.example.favorite.ui.FavoriteFragment")
+                        .newInstance() as Fragment
             }
             if (fragment != null) {
                 if (supportFragmentManager.backStackEntryCount > 0) {
@@ -39,9 +41,9 @@ class HomeActivity : AppCompatActivity() {
                     )
                 }
                 supportFragmentManager.beginTransaction()
-                        .replace(R.id.navHostFragment, fragment)
-                        .addToBackStack(null)
-                        .commit()
+                    .replace(R.id.navHostFragment, fragment)
+                    .addToBackStack(null)
+                    .commit()
                 return@setOnNavigationItemSelectedListener true
             }
             false
@@ -49,9 +51,9 @@ class HomeActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.navHostFragment, HomeFragment())
-                    .addToBackStack(null)
-                    .commit()
+                .replace(R.id.navHostFragment, HomeFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 

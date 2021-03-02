@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Submission2</string>
     <string name="title_favorite">Favorite</string>
     <string name="popular">Popular</string>
@@ -17,5 +17,5 @@
     <string name="add_to_favorite">add to favorite</string>
     <string name="remove_to_favorite">remove to favorite</string>
     <string name="home">Home</string>
-    <string name="minutes">%1$d minutes</string>
+    <string name="minutes" tools:ignore="PluralsCandidate">%1$d minutes</string>
 </resources>

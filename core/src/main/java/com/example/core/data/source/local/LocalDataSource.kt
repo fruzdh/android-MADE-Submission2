@@ -9,7 +9,8 @@ class LocalDataSource(private val movieDao: MovieDao) {
 
     fun getMovieFavorite(): Flow<List<MovieDetailEntity>> = movieDao.getMovieFavorite()
 
-    suspend fun insertMovieDetail(movieDetailEntity: MovieDetailEntity) = movieDao.insertMovieDetail(movieDetailEntity)
+    suspend fun insertMovieDetail(movieDetailEntity: MovieDetailEntity) =
+        movieDao.insertMovieDetail(movieDetailEntity)
 
     fun updateMovieDetail(movieDetailEntity: MovieDetailEntity, newState: Boolean) {
         movieDetailEntity.favorite = newState
@@ -18,32 +19,40 @@ class LocalDataSource(private val movieDao: MovieDao) {
 
     fun getMovieNowPlaying(): Flow<List<MovieNowPlayingEntity>> = movieDao.getMovieNowPlaying()
 
-    suspend fun insertMovieNowPlaying(movieNowPlayingEntity: List<MovieNowPlayingEntity>) = movieDao.insertMovieNowPlaying(movieNowPlayingEntity)
+    suspend fun insertMovieNowPlaying(movieNowPlayingEntity: List<MovieNowPlayingEntity>) =
+        movieDao.insertMovieNowPlaying(movieNowPlayingEntity)
 
     fun getMoviePopular(): Flow<List<MoviePopularEntity>> = movieDao.getMoviePopular()
 
-    suspend fun insertMoviePopular(moviePopularEntity: List<MoviePopularEntity>) = movieDao.insertMoviePopular(moviePopularEntity)
+    suspend fun insertMoviePopular(moviePopularEntity: List<MoviePopularEntity>) =
+        movieDao.insertMoviePopular(moviePopularEntity)
 
-    fun getMovieRecommendations(id: Int): Flow<List<MovieRecommendationsEntity>> = movieDao.getMovieRecommendations(id)
+    fun getMovieRecommendations(id: Int): Flow<List<MovieRecommendationsEntity>> =
+        movieDao.getMovieRecommendations(id)
 
-    suspend fun insertMovieRecommendations(movieRecommendationsEntity: List<MovieRecommendationsEntity>) = movieDao.insertMovieRecommendations(movieRecommendationsEntity)
+    suspend fun insertMovieRecommendations(movieRecommendationsEntity: List<MovieRecommendationsEntity>) =
+        movieDao.insertMovieRecommendations(movieRecommendationsEntity)
 
     fun getMovieSearch(query: String): Flow<List<MovieSearchEntity>> {
         val keyWord = "%$query%"
         return movieDao.getMovieSearch(keyWord)
     }
 
-    suspend fun insertMovieSearch(movieSearchEntity: List<MovieSearchEntity>) = movieDao.insertMovieSearch(movieSearchEntity)
+    suspend fun insertMovieSearch(movieSearchEntity: List<MovieSearchEntity>) =
+        movieDao.insertMovieSearch(movieSearchEntity)
 
     fun getMovieSimilar(id: Int): Flow<List<MovieSimilarEntity>> = movieDao.getMovieSimilar(id)
 
-    suspend fun insertMovieSimilar(movieSimilarEntity: List<MovieSimilarEntity>) = movieDao.insertMovieSimilar(movieSimilarEntity)
+    suspend fun insertMovieSimilar(movieSimilarEntity: List<MovieSimilarEntity>) =
+        movieDao.insertMovieSimilar(movieSimilarEntity)
 
     fun getMovieTopRated(): Flow<List<MovieTopRatedEntity>> = movieDao.getMovieTopRated()
 
-    suspend fun insertMovieTopRated(movieTopRatedEntity: List<MovieTopRatedEntity>) = movieDao.insertMovieTopRated(movieTopRatedEntity)
+    suspend fun insertMovieTopRated(movieTopRatedEntity: List<MovieTopRatedEntity>) =
+        movieDao.insertMovieTopRated(movieTopRatedEntity)
 
     fun getMovieUpcoming(): Flow<List<MovieUpcomingEntity>> = movieDao.getMovieUpcoming()
 
-    suspend fun insertMovieUpcoming(movieUpcomingEntity: List<MovieUpcomingEntity>) = movieDao.insertMovieUpcoming(movieUpcomingEntity)
+    suspend fun insertMovieUpcoming(movieUpcomingEntity: List<MovieUpcomingEntity>) =
+        movieDao.insertMovieUpcoming(movieUpcomingEntity)
 }

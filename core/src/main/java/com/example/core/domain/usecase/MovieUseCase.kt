@@ -1,7 +1,6 @@
 package com.example.core.domain.usecase
 
 import com.example.core.data.Resource
-import com.example.core.data.source.local.entity.*
 import com.example.core.domain.model.Movie
 import com.example.core.domain.model.MovieDetail
 import kotlinx.coroutines.flow.Flow
