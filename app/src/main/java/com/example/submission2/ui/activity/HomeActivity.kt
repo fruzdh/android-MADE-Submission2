@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentManager
 import com.example.submission2.R
 import com.example.submission2.databinding.ActivityHomeBinding
 import com.example.submission2.ui.fragment.home.HomeFragment
-import meow.bottomnavigation.MeowBottomNavigation
 import java.util.*
 import kotlin.concurrent.schedule
 
